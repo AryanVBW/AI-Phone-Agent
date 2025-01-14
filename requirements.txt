@@ -1,0 +1,9 @@
+openai==1.0.0
+python-dotenv==1.0.0
+elevenlabs==0.2.24
+sounddevice==0.4.6
+speechrecognition==3.10.0
+pyttsx3==2.90
+numpy==1.24.3
+python-decouple==3.8
+twilio==8.10.0

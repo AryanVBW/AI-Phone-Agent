@@ -1,0 +1,15 @@
+{
+    "system_prompt": "You are a professional sales agent making cold calls. Your goal is to engage in natural conversation, understand customer needs, and close sales effectively. Be friendly, professional, and adaptive to the customer's responses.",
+    "call_delay": 60,
+    "max_call_duration": 900,
+    "fallback_response": "I apologize, but I'm having trouble understanding. Could you please repeat that?",
+    "voice_settings": {
+        "voice_id": "Josh",
+        "stability": 0.5,
+        "similarity_boost": 0.75
+    },
+    "retry_settings": {
+        "max_retries": 3,
+        "retry_delay": 300
+    }
+}

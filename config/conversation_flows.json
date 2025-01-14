@@ -1,0 +1,68 @@
+{
+    "initial": {
+        "responses": {
+            "greeting": "Hello {name}, this is {agent_name} from {company_name}. I hope I caught you at a good time. I'm calling to discuss how our solutions could benefit your business.",
+            "default_response": "Hello, this is {agent_name} from {company_name}. I'm reaching out to discuss our solutions."
+        },
+        "transitions": {
+            "positive": "pitch",
+            "negative": "handling_objection",
+            "busy": "schedule_callback"
+        }
+    },
+    "pitch": {
+        "responses": {
+            "interest": "Based on what you've shared, I believe our {product_name} would be perfect for your needs. It specifically addresses {pain_point} by {solution_description}.",
+            "default_response": "Let me tell you about how our solution can help businesses like yours."
+        },
+        "transitions": {
+            "interested": "present_offer",
+            "objection": "handling_objection",
+            "need_more_info": "provide_details"
+        }
+    },
+    "handling_objection": {
+        "responses": {
+            "price": "I understand your concern about the investment. Many of our clients initially felt the same way, but they've seen an average ROI of {roi_percentage}% within {roi_timeframe}.",
+            "not_interested": "I appreciate your time. Would you be open to receiving some information via email for future reference?",
+            "default_response": "I understand your concerns. Let me address them specifically."
+        },
+        "transitions": {
+            "resolved": "pitch",
+            "unresolved": "call_completed"
+        }
+    },
+    "present_offer": {
+        "responses": {
+            "pricing": "We're currently offering a special package at {price} with {features}. This includes {benefits}.",
+            "default_response": "Let me present our current offer that I believe would be perfect for your needs."
+        },
+        "transitions": {
+            "accepted": "close_sale",
+            "negotiating": "handle_negotiation",
+            "objection": "handling_objection"
+        }
+    },
+    "close_sale": {
+        "responses": {
+            "success": "Excellent! I'll process your order right away. You'll receive a confirmation email with all the details shortly.",
+            "default_response": "Thank you for your decision. Let's proceed with the next steps."
+        },
+        "transitions": {
+            "completed": "sale_closed"
+        }
+    },
+    "schedule_callback": {
+        "responses": {
+            "success": "I understand this isn't a good time. When would be a better time to reach you?",
+            "default_response": "Let's schedule a time that works better for you."
+        },
+        "transitions": {
+            "scheduled": "call_completed",
+            "refused": "call_completed"
+        }
+    },
+    "fallback": {
+        "default_response": "I apologize, but I'm having trouble understanding. Could you please repeat that?"
+    }
+}
