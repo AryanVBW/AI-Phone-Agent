@@ -2,13 +2,18 @@ import openai
 from typing import Dict, Any
 import json
 import time
+import os
 
 class PhoneAgent:
     def __init__(self, voice_handler, conversation_manager, logger):
         self.voice_handler = voice_handler
         self.conversation_manager = conversation_manager
         self.logger = logger
-        self.client = openai.OpenAI()
+        
+        # Initialize OpenAI client with API key
+        self.client = openai.OpenAI(
+            api_key=os.getenv('OPENAI_API_KEY')
+        )
         
         # Load agent configuration
         self.load_config()
